@@ -12,7 +12,7 @@ import {UserService} from '../shared/user.service';
   styleUrls: ['./question-paper.component.css']
 })
 export class QuestionPaperComponent implements OnInit {
-@ViewChild('f', { static: false }) signupForm : NgForm;  
+@ViewChild('f', { static: false }) QForm : NgForm;  
 questions: any = [];
 examId : string;
 questionIDs: any = [];
@@ -110,7 +110,11 @@ getQuestion(i:number) {
     });
   } */
 
+  OnSubmit() {
+    console.log(this.QForm.value.Opt);
+  }
   submitExam() {
+    //this.user.username = this.signupForm.value.userData.username;
    this.router.navigate(['/results/'+this.uId],);
   }
 
