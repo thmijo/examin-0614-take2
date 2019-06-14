@@ -45,6 +45,8 @@ value : string = "temp";
 
   showQuestion(i:number) {
 
+ 
+
   if(this.attemptId==null) {
       this.userService.createAttempt().then(docRef => {
       this.attemptIdArreay.push(docRef.id);
@@ -55,7 +57,10 @@ value : string = "temp";
         console.log(" errr "+ reason);
       });
   } 
-
+  if(this.QForm!=null) {
+      console.log(this.QForm);
+      console.log ("Showing question -- "+this.QForm.value.Option);
+  }
   this.currentQuestionIndex = i;
   console.log("geting question"+i+ "  "+this.questionIDs[i]);
     this.questionService.getQuestion(this.questionIDs[i]).then(doc => {
@@ -83,7 +88,7 @@ value : string = "temp";
   }
 
 getQuestion(i:number) {
-    console.log ("getttting values submitted"+this.signupForm.value.Option);
+    console.log ("getttting values submitted"+this.QForm.value.Option);
     this.currentQuestionIndex = i;
     this.previousQuestionIndex = i-1;
     if (this.previousQuestionIndex<0) 
@@ -91,7 +96,7 @@ getQuestion(i:number) {
     this.nextQuestionIndex = i+1;
     if (this.nextQuestionIndex > this.questions.length-1)
     this.nextQuestionIndex = null;
-     this.signupForm.reset();
+     this.QForm.reset();
    // this.questions[i-1].sel = "!!!!!!!!!!!!!!!!!!!!!!!!!"+this.signupForm.value.Option;
     //this.getQuestion.bind("ans3");
    // console.log(this.questions[this.currentQuestionIndex]);
@@ -110,8 +115,11 @@ getQuestion(i:number) {
     });
   } */
 
-  OnSubmit() {
+  onSubmit() {
+    console.log("for submit action ###########################");
     console.log(this.QForm.value.Opt);
+    this.QForm.reset();
+    console.log("for submit action ###########################");
   }
   submitExam() {
     //this.user.username = this.signupForm.value.userData.username;
