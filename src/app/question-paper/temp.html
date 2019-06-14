@@ -1,0 +1,85 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<!--
+{{attemptId}}<br>
+{{currentQuestionIndex}} <br>
+{{this.questionIDs.length-1}}<br>
+-->
+<div *ngIf="currentQuestionIndex===-1" class="container">
+  <div class="row">
+    <div class="col-md-4" class="themed-grid-col"> <div class="card align-center">
+      <div class="card-header"> Welcome to Exam </div>
+      <div class="card-body"> 
+        <p> This is a loerum ipsume exam  </p>
+    <!--    <button class="btn btn-primary" (click)="showQuestion(0)"> Start Exam </button>  --> </div>
+    </div> </div>
+    <div class="col-md-4">
+    <div class="card align-center">
+      <div class="card-header"> Welcome to Exam </div>
+      <div class="card-body"> 
+        <p> This is a loerum ipsume exam  </p>
+        <button class="btn btn-primary" (click)="showQuestion(0)"> Start Exam </button> </div>
+    </div>
+    </div>
+    <div class="col-md-4" class="themed-grid-col"><div class="card align-center">
+      <div class="card-header"> Welcome to Exam </div>
+      <div class="card-body"> 
+        <p> This is a loerum ipsume exam  </p>
+       <!-- <button class="btn btn-primary" (click)="showQuestion(0)"> Start Exam </button>  --> </div>
+    </div></div>
+  </div>
+</div>
+
+<!-- <form (ngSubmit)="onSubmit()" #f="ngForm"> -->
+<div *ngIf="!(currentQuestionIndex===-1)" class="container">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
+    <div class="card align-center">
+      <div class="card-header"> Welcome to Exam Welcome to Exam Welcome to Exam </div>   
+      <div class="card-body"> 
+        {{question.qn.q}}
+
+     <!--   <div *ngFor=" let opt of opts"> -->
+        	<div class="custom-control custom-radio text-left">
+							<input id="credit" name="Option" type="radio"  checked (click) = "rbClick(currentQuestionIndex,'o1')" class="custom-control-input" value="o1" ngModel required>
+              <label class="custom-control-label" for="credit">{{question.o1}}</label>
+          </div>
+    <!--    </div> -->
+          	<div class="custom-control custom-radio text-left">
+							<input id="debit" name="Option" type="radio"  checked (click) = "rbClick(currentQuestionIndex,'o2')" class="custom-control-input" value="o2" ngModel required>
+              <label class="custom-control-label" for="debit">{{question.o2}}</label>
+          </div>
+          	<div class="custom-control custom-radio text-left">
+							<input id="payment" name="Option" type="radio"  checked (click) = "rbClick(currentQuestionIndex,'o3')" class="custom-control-input" value="o3" ngModel required>
+              <label class="custom-control-label" for="payment">{{question.o3}}</label>
+          </div>
+        <br>
+        <div class="clearfix">
+        <button class="btn btn-primary float-left" *ngIf="!(currentQuestionIndex===0)" (click)="showQuestion(currentQuestionIndex-1)"> Prev </button> 
+        <button class="btn btn-primary float-right" *ngIf="!(currentQuestionIndex===(this.questionIDs.length-1))" (click)="showQuestion(currentQuestionIndex+1)"> Next </button> 
+        <button class="btn btn-success float-right" *ngIf="(currentQuestionIndex===(this.questionIDs.length-1))" (click)="submitExam()"> Submit </button> 
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+<!--/form> -->
+
+
+
+
+
+

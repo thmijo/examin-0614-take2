@@ -1,0 +1,76 @@
+
+
+<!--
+{{attemptId}}<br>
+{{currentQuestionIndex}} <br>
+{{this.questionIDs.length-1}}<br>
+-->
+
+<div *ngIf="currentQuestionIndex===-1 then WelcomeScreen else QuestionScreen"></div>
+
+<ng-template #WelcomeScreen>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" class="themed-grid-col"> <div class="card align-center">
+      <div class="card-header"> Welcome to Exam </div>
+      <div class="card-body"> 
+        <p> This is a loerum ipsume exam  </p>
+    <!--    <button class="btn btn-primary" (click)="showQuestion(0)"> Start Exam </button>  --> </div>
+    </div> </div>
+    <div class="col-md-4">
+    <div class="card align-center">
+      <div class="card-header"> Welcome to Exam </div>
+      <div class="card-body"> 
+        <p> This is a loerum ipsume exam  </p>
+        <button class="btn btn-primary" (click)="showQuestion(0)"> Start Exam </button> </div>
+    </div>
+    </div>
+    <div class="col-md-4" class="themed-grid-col"><div class="card align-center">
+      <div class="card-header"> Welcome to Exam </div>
+      <div class="card-body"> 
+        <p> This is a loerum ipsume exam  </p>
+       <!-- <button class="btn btn-primary" (click)="showQuestion(0)"> Start Exam </button>  --> </div>
+    </div></div>
+  </div>
+</div>
+</ng-template>
+
+<!-- <form (ngSubmit)="onSubmit()" #f="ngForm"> -->
+<ng-template #QuestionScreen>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
+    <div class="card align-center">
+      <div class="card-header"> Welcome to Exam Welcome to Exam Welcome to Exam </div>   
+      <div class="card-body"> 
+        {{question.qn.q}}
+        <div *ngFor=" let opt of question.opts; let i = index">
+        	<div *ngIf="question.qn.qType==='MCQ'" class="text-left">
+							<input id="id_{{i}}" name="Opt" type="radio"  checked (click) = "rbClick(currentQuestionIndex,i)"  value="val_{{i}}" ngModel>
+              <label class="" for="credit">{{opt.name}} ---- {{i}}</label>
+          </div>
+          <div *ngIf="question.qn.qType==='MACQ'" class="text-left">
+							<input id="id_{{i}}" name="Opt" type="checkbox"  checked (click) = "rbClick(currentQuestionIndex,i)"  value="val_{{i}}" ngModel>
+              <label class="" for="credit">{{opt.name}} ---- {{i}}</label>
+          </div>
+        </div>
+        <br>
+        <div class="clearfix">
+        <button class="btn btn-primary float-left" *ngIf="!(currentQuestionIndex===0)" (click)="showQuestion(currentQuestionIndex-1)"> Prev </button> 
+        <button class="btn btn-primary float-right" *ngIf="!(currentQuestionIndex===(this.questionIDs.length-1))" (click)="showQuestion(currentQuestionIndex+1)"> Next </button> 
+        <button class="btn btn-success float-right" *ngIf="(currentQuestionIndex===(this.questionIDs.length-1))" (click)="submitExam()"> Submit </button> 
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+</ng-template>
+<!--/form> -->
+
+
+
+
+
+

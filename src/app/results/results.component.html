@@ -1,0 +1,41 @@
+
+
+<div class="d-flex" id="wrapper">
+
+   <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+          <a *ngFor="let attemptID of attemptIDs" class="btn list-group-item list-group-item-action bg-light"
+            ><i (click)="showResult(attemptID)" class="la la-trash">{{attemptID}}</i></a
+          >
+          
+        </div>
+   </div>
+
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+         {{currentAttemptId}}
+        <div *ngFor="let question of attemptDetails; let i = index">
+          <div class="card">
+              <div class="card-header"> {{i+1}} .  {{question.qId}}
+              </div>
+              <div class="card-body">
+              <table class="table table-dark table-sm" >
+              
+                <tr> <td> Slected Answer </td>
+              <td>
+                {{question.sel}}</td>
+                </tr>
+                        <tr> <td> Right Answer </td>
+              <td>
+                {{question.ans}}</td>
+                </tr>
+
+                <tr *ngIf="question.sel===question.ans"><td> Correct Answer </td></tr>
+                <tr *ngIf="!(question.sel===question.ans)"> <td> Wrong Answer </td> </tr> 
+              </table>
+          </div>
+                </div>
+              </div>
+</div>
+</div> <!-- /#wrapper -->
+
