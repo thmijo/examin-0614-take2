@@ -59,7 +59,7 @@ value : string = "temp";
   } 
   if(this.QForm!=null) {
       console.log(this.QForm);
-      console.log ("Showing question -- "+this.QForm.value.Option);
+      console.log ("Showing question -- "+this.QForm.value.Opt);
   }
   this.currentQuestionIndex = i;
   console.log("geting question"+i+ "  "+this.questionIDs[i]);
