@@ -20,7 +20,7 @@
         {{question.qn.q}}
         <div *ngFor=" let opt of question.opts; let i = index">
         	<div *ngIf="question.qn.qType==='MCQ'" class="text-left">
-							<input name="Opt" type="radio"  (click) = "rbClick(currentQuestionIndex,i)"  value="Megha" ngModel>
+							<input name="Opt" type="radio"  (click) = "rbClick(currentQuestionIndex,i)"  value="val_{{i}}" ngModel>
               <label class="" for="credit">{{opt.name}} ---- {{i}}</label>
           </div>
           <div *ngIf="question.qn.qType==='MACQ'" class="text-left">
