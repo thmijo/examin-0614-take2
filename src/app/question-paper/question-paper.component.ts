@@ -71,10 +71,10 @@ value : string = "temp";
 
   rbClick(i:number,selectedOption:string) {
   //  console.log ("value"+ this.value);
-    console.log ("radio button @@@"+this.QForm.value.Opt);
+  /*  console.log ("radio button @@@"+this.QForm.value.Opt);
     console.log ("radio button clicked"+selectedOption);
     console.log ("radio button answer"+this.questionIDs[i]);
-     console.log ("radio button answer"+this.attemptId);
+     console.log ("radio button answer"+this.attemptId); */
     const tempattempt = {
      qId: this.questionIDs[i],
      ans : this.question.ans,
@@ -119,7 +119,7 @@ getQuestion(i:number) {
     console.log("for submit action ###########################");
     console.log("Selection is "+this.QForm.value.Opt);
     console.log(this.QForm);
-    /this.QForm.reset();
+    //this.QForm.reset();
     this.QForm.resetForm();
     console.log("for submit action ###########################");
   }
