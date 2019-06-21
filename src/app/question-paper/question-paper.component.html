@@ -30,8 +30,8 @@
         </div>
         <br>
         <div class="clearfix">
-        <button class="btn btn-primary float-left" *ngIf="!(currentQuestionIndex===0)" type="button" (click)="showQuestion(currentQuestionIndex-1)"> Prev </button> 
-        <button class="btn btn-primary float-right" *ngIf="!(currentQuestionIndex===(this.questionIDs.length-1))" (click)="showQuestion(currentQuestionIndex+1)" type="button" > Next </button> 
+        <button class="btn btn-primary float-left" *ngIf="!(currentQuestionIndex===0)" type="submit" (click)="showQuestion(currentQuestionIndex-1)"> Prev </button> 
+        <button class="btn btn-primary float-right" *ngIf="!(currentQuestionIndex===(this.questionIDs.length-1))" (click)="showQuestion(currentQuestionIndex+1)" type="submit" > Next </button> 
         <button class="btn btn-success float-right" type="submit" *ngIf="(currentQuestionIndex===(this.questionIDs.length-1))" (click)="submitExam()"> Submit </button> 
         </div>
       </div>

@@ -70,8 +70,8 @@ value : string = "temp";
   }  
 
   rbClick(i:number,selectedOption:string) {
-    console.log ("value"+ this.value);
-   // console.log ("radio button @@@"+this.signupForm.value.Option);
+  //  console.log ("value"+ this.value);
+    console.log ("radio button @@@"+this.QForm.value.Opt);
     console.log ("radio button clicked"+selectedOption);
     console.log ("radio button answer"+this.questionIDs[i]);
      console.log ("radio button answer"+this.attemptId);
@@ -84,7 +84,7 @@ value : string = "temp";
     this.attemptArray[i] = tempattempt;
     console.log(this.attemptArray);
     this.userService.updateAttempt(this.attemptId,this.attemptArray);
-    //update attempt table with id
+    //update attempt table with id 
   }
 
 getQuestion(i:number) {
@@ -117,8 +117,10 @@ getQuestion(i:number) {
 
   onSubmit() {
     console.log("for submit action ###########################");
-    console.log(this.QForm.value.Opt);
-    this.QForm.reset();
+    console.log("Selection is "+this.QForm.value.Opt);
+    console.log(this.QForm);
+    /this.QForm.reset();
+    this.QForm.resetForm();
     console.log("for submit action ###########################");
   }
   submitExam() {
