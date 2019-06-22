@@ -1,5 +1,4 @@
 <div class="d-flex" id="wrapper">
-
 	<div class="bg-light border-right" id="sidebar-wrapper">
 		<div class="list-group list-group-flush">
 			<a *ngFor="let attemptID of attemptIDs" class="btn list-group-item list-group-item-action bg-light"><i (click)="showResult(attemptID)" class="la la-trash">{{attemptID}}</i></a
@@ -13,7 +12,8 @@
                 <div *ngFor="let question of attemptDetails; let i = index">
                           <tr>
                             <td scope="row">{{i+1}}</td>
-                            <td>{{question.qId}}</td>
+                            <td> {{question.qId}} </td>
+                            <td> <button class="btn btn-primary" (click) = "showQuestion(question.qId)"> Show Question </button> </td>
                             <td>{{question.sel}}</td>
                             <td>{{question.ans}}</td>
                             <td  *ngIf="question.sel===question.ans"> Correct Answer </td>

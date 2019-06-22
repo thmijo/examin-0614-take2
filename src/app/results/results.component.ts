@@ -39,4 +39,8 @@ export class ResultsComponent implements OnInit {
         console.log(" got attempts");
   });
 }
+  showQuestion(qid:string) {
+    console.log("question id is"+qid);
+
+  }
 } 
