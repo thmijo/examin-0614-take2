@@ -15,19 +15,18 @@
     <div class="col-sm-4"></div>
     <div class="col-sm-4"></div>
     <div class="card align-center">
-      <div class="card-header"> Welcome to Exam Welcome to Exam Welcome to Exam </div>   
+      <div class="card-header"> Welcome to Exam </div>   
       <div class="card-body"> 
         {{question.qn.q}}
-        {{question}}
         <div *ngIf="!(question===null)">
           <div *ngFor=" let opt of question.opts; let i = index">
             <div *ngIf="question.qn.qType==='MCQ'" class="text-left">
                 <input name="Opt" type="radio"  (click) = "rbClick(currentQuestionIndex,i)"  value="val_{{i}}" ngModel>
-                <label class="" for="credit">{{opt.name}} ---- {{i}}</label>
+                <label class="" for="credit">{{opt.name}}</label>
             </div>
             <div *ngIf="question.qn.qType==='MACQ'" class="text-left">
                 <input id="id_{{i}}" name="Opt[]" type="checkbox"  (click) = "rbClick(currentQuestionIndex,i)"  value="val_{{i}}" ngModel>
-                <label class="" for="credit">{{opt.name}} ---- {{i}}</label>
+                <label class="" for="credit">{{opt.name}}</label>
             </div>
           </div>
         </div>
